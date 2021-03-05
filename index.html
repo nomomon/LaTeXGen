@@ -1,58 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home | LaTeXGen</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="icon" type="image/ico" href="images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
-    <link href="/home/fontawesome/pro.min.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width">
+    <title>LaTeX Converter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="notebook/function.js"></script>
+    <script src="notebook/function_math.js"></script>
+
+    <!-- CodeMirror -->
+    <script src="plugin/codemirror/codemirror.js"></script>
+    <link rel="stylesheet" href="plugin/codemirror/codemirror.css">
+    <link rel="stylesheet" href="plugin/codemirror/night.css">
+    <script src="plugin/codemirror/codemirror_config.js"></script>
+    <script src="plugin/codemirror/addons/placeholder.js"></script>
+    <script src="plugin/codemirror/stex/stex.js"></script>
+    <script src="plugin/codemirror/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="plugin/codemirror/addons/hint/show-hint.css">
+    <script src="plugin/codemirror/addons/hint/show-hint.js"></script>
+    <script src="plugin/codemirror/addons/hint/javascript-hint.js"></script>
 </head>
 <body>
-    <span id="top" style="position:absolute; top:0;"></span>
-    <nav>
-        <div class="menu"><i class="fad fa-bars"></i></div>
-        <a href="#top" class="logo">LaTe<i class="fad fa-dna"></i>Gen</a>
-        <div style="flex:1;">
-            <a class="nav-link" href="#about">About</a>
-            <a class="nav-link" href="learn">Learn</a>
-            <a class="nav-link" href="/LaTeXGen/app">App</a>
-            <!-- <a class="nav-link" href="#templates">Templates</a> -->
-        </div>
-        <a class="nav-link" href="https://github.com/nomomon/nomomon.github.io/tree/master/LaTeXGen">GitHub</a>
-    </nav>
-    <main>
-        <br>
-        <center><h2>An easy way to create numerous problems simultaneously</h2></center>
-        <br>
-        <center><img src="/LaTeXGen/images/home.png"></center>
-    </main>
-    <svg width="" height="100">
-        <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#FF7600;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#FF9400;stop-opacity:1" />
-            </linearGradient>
-        </defs>
-        <path d="M 0 0 L 0 50 Q 400 100 800 50 Q 1200 0 1600 50 L 1600 0 L 0 0" fill="url(#grad1)">
-    </svg>
-    <div id="about">
-        <center>
-            <h3>About</h3>
-            <p>LatexGen is a platform that allows users to create and use existing templates of self-generating problems on natural sciences and mathematics.</p>
-            <p>LatexGen is a compilation of characteristic features that include, but are not limited to, expanded language for typesetting and programming, which is developed by our team, and substitution of parameters by suitable numbers selected by the programming code in JavaScript from a range determined by the user.</p> 
+<div>
+  <!-- input -->
+  <div id="code">
+    <textarea class="codemirror-textarea-st" name="preview-form-comment-st" id="preview-form-comment-st" placeholder="LaTeX goes here...">
+$\text{Simplify the following: }$
+$$\frac{#a#x^3 + #B#x^2 + #C#x + #D#}{#a#x^3 + #E#x^2 + #F#x + #G#}$$
 
-            <p>LatexGen brings us one step closer to the modernization of education, utility and progress.</p>
-        </center><center>
-            <h3>Why LaTeXGen</h3>
-            <p>With the rising popularity of information technologies in the process of education modernisation, it is evident that we need to update the means used in education. LatexGen offers endless possibilities to a wide range of people as a platform for creating self-generating problems for maths, sciences and technical subjects related courses.</p>
+$\textbf{Solution:}$
+$\frac{#a#x^3 + #a#x^2 + #b1#x^2 + #b1#x + #D#x + #D#}{#a#x^3 + #a#x^2 + #b2#x^2 + #b2#x + #G#x + #G#}\text{=}$
+$\text{=}\frac{#a#x^2(x + 1) + #b1#x(x + 1) + #D#(x + 1)}{#a#x^2(x + 1) + #b2#x(x + 1) + #G#(x + 1)}\text{=}$
+$\text{=}\frac{(x + 1)(#a#x^2 + #b1#x + #D#)}{(x + 1)(#a#x^2 + #b2#x + #G#)}\text{=}$
+$\text{=}\frac{(x + 1)(#a#x^2 + #a1#x + #b#x + #D#)}{(x + 1)(#a#x^2 + #a2#x + #b#x + #G#)}\text{=}$
+$\text{=}\frac{(x + 1) \textbf{[} #a#x(x + #d#) + #b#(x + #d#) \textbf{]} }{(x + 1) \textbf{[} #a#x(x + #g#) + #b#(x + #g#) \textbf{]} }\text{=}$
+$\text{=}\frac{(x + 1)(x + #d#)(#a#x + #b#)}{(x + 1)(x + #g#)(#a#x + #b#)}\text{=}$
+$\text{=}\frac{(x + 1)(x + #d#)(#a#x+#b#)}{(x+1)(x+#g#)(#a#x+#b#)}\text{=}$
+$\text{=}\frac{x + #d#}{x + #g#}$
+</textarea>
+  <br>
+    <textarea class="codemirror-textarea-js" name="preview-form-comment-js" id="preview-form-comment-js" placeholder="JavaScript goes here...">
+var a = rand('int', 2, 7);
+var b = rand('int', 10, 100);
+var d = rand('int', 1, 12);
+var g = rand('int', 2, 8);
 
-            <p>Users can find math problem templates on the website. The straightforward interface lets them create problems in mathematics and natural sciences and set parameters for them. LatexGen acts as a practical interactive development environment.</p>
+var B = a*d + b + a;
+var C = a*d + b + b*d;
+var D = b*d;
+var E = a*g + b + a;
+var F = b*g + a*g + b;
+var G = b*g;
 
-            <p>Functionality and capabilities for ergonomic utilisation of LatexGen make it one of the best interactive platforms designed to reform and modernise education.</p>
-        </center>
-    </div>
+var b1 = a*d + b;
+var b2 = a*g + b;
+var a1 = a*d;
+var a2 = a*g;</textarea>
+  <br>
+  <tr>
+    <td><button name="convert" id="convert">Convert to LaTeX</button></td>
+    <td><button name="download" id="download">Download file</button></td>
+    <!-- <td><div><input type="file" id="upload"><br>
+        <button onclick="upload()>Upload file</button></div></td> -->
+  </tr>
+  </div>
+
+  <!-- output -->
+  <iframe id="preview-comment" ></iframe>
+</div>
+<br>
+<button onclick="exportIframe()">Export iframe</button>
+<button onclick="copyToClipboard(exportURL(document.getElementById('preview-form-comment-js').value, document.getElementById('preview-form-comment-st').value);)">Copy URL</button>
 </body>
-<script src="script.js"></script>
 </html>
