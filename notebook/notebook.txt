@@ -1,0 +1,31 @@
+# %% [markdown]
+Easy problem by somebody
+# %% [code_latex]
+$\text{Simplify the following: }$ \newline
+$$\frac{#a#x^3 + #B#x^2 + #C#x + #D#}{#a#x^3 + #E#x^2 + #F#x + #G#}$$
+$\textbf{Solution:}$<br>
+$\frac{#a#x^3 + #a#x^2 + #b1#x^2 + #b1#x + #D#x + #D#}{#a#x^3 + #a#x^2 + #b2#x^2 + #b2#x + #G#x + #G#}\text{=}$
+$\frac{#a#x^2(x + 1) + #b1#x(x + 1) + #D#(x + 1)}{#a#x^2(x + 1) + #b2#x(x + 1) + #G#(x + 1)}\text{=}$
+$\frac{(x + 1)(#a#x^2 + #b1#x + #D#)}{(x + 1)(#a#x^2 + #b2#x + #G#)}\text{=}$
+$\frac{(x + 1)(#a#x^2 + #a1#x + #b#x + #D#)}{(x + 1)(#a#x^2 + #a2#x + #b#x + #G#)}\text{=}$
+$\frac{(x + 1) \textbf{[} #a#x(x + #d#) + #b#(x + #d#) \textbf{]} }{(x + 1) \textbf{[} #a#x(x + #g#) + #b#(x + #g#) \textbf{]} }\text{=}$
+$\frac{(x + 1)(x + #d#)(#a#x + #b#)}{(x + 1)(x + #g#)(#a#x + #b#)}\text{=}$
+$\frac{(x + 1)(x + #d#)(#a#x+#b#)}{(x+1)(x+#g#)(#a#x+#b#)}\text{=}$
+$\frac{x + #d#}{x + #g#}$
+# %% [code_js]
+var a = rand("int", 2, 7);
+var b = rand();
+var d = rand();
+var g = rand();
+
+var B = a*d + b + a;
+var C = a*d + b + b*d;
+var D = b*d;
+var E = a*g + b + a;
+var F = b*g + a*g + b;
+var G = b*g;
+// for solution
+var b1 = a*d + b;
+var b2 = a*g + b;
+var a1 = a*d;
+var a2 = a*g;

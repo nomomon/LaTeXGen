@@ -1,0 +1,101 @@
+body{
+	padding-left: 5%;
+	padding-right: 25%;
+}
+#codeBox{
+	border-width: 1px;
+	border-style: solid; 
+	padding:10px 5px 5px 5px;
+}
+
+.markdown{
+	padding:0px;
+}
+textarea{
+	width:100%;
+	overflow: auto;
+	height: 250px;
+}
+iframe{
+    width:98%;
+    height: 100px;
+}
+
+.tab{
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #F8F8F8;
+}
+
+.deleteMarkdown{
+	float:right;
+}
+.tabButton{
+  float: left;
+}
+.tabButton,.deleteMarkdown{
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 16px;
+  transition: 0.3s;
+}
+.tabButton:hover,.deleteMarkdown:hover {
+  background-color: #ddd;
+}
+.tabButton.active, .deleteMarkdown.active {
+  background-color: #ccc;
+}
+
+.js{
+	width:99%;
+	background-color: #F5F5F5;
+	/*display: none;*/
+}
+.latex{
+	background-color: #F5F5F5;
+	width:99%;
+	/*display: none;*/
+}
+.preview{
+	background-color: #F5F5F5;
+	padding:5px;
+	padding-left:10px;
+}
+.addMarkdownButton{
+	background-color: inherit;
+	float: center;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 10px 16px;
+	margin-right: 54%;
+	margin-left: 46%;
+	width:120px;
+}
+
+.unselected .tab, .latex, .js{
+	display: none;
+}
+.unselected .preview{
+	display: block;
+}
+.latex_selected .preview, .js{
+	display: none;
+}
+.latex_selected .latex{
+	display: block;
+}
+.js_selected .preview, .latex{
+	display: none;
+}
+.js_selected .js{
+	display: block;
+}
+
+.selected{
+	border-left-style: solid; 
+	border-left-color: #33C7FF; /*light blue*/
+	border-left-width: px; 
+}

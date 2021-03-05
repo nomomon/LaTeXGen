@@ -1,0 +1,44 @@
+//Settins for CodeMirror
+//
+//LaTeX part:
+$(document).ready(function(){
+	var code_st = $(".codemirror-textarea-st")[0];
+	var editor_st = CodeMirror.fromTextArea(code_st, {
+		lineNumbers : true,
+    	mode: "stex",
+    	theme: "night",
+    	indentWithTabs: true,
+    	smartIndent: true
+	});
+
+//JavaScript part:
+	var code_js = $(".codemirror-textarea-js")[0];
+	var editor_js = CodeMirror.fromTextArea(code_js, {
+		lineNumbers : true,
+    	mode: "javascript",
+    	theme: "night",
+    	indentWithTabs: true,
+    	smartIndent: true,
+      extraKeys:{"Ctrl-Space":"autocomplete"}
+	});
+
+	$("#convert").click(function(){
+		var val = editor_js.getValue();
+		var problem = editor_st.getValue();
+    	convert(val, problem);
+    });
+    
+  $("#download").click(function(){
+		var val = editor_js.getValue("\n");
+		var problem = editor_st.getValue();
+
+    var text = "LaTeX: \n" + problem + "\n JavaScript: \n" + val;
+    var filename = "problem.txt";
+    
+    download(filename, text);
+    });
+
+});
+
+
+
