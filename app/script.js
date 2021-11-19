@@ -79,7 +79,7 @@ function printPage(){
 }
 
 page.addEventListener("click", e =>{
-    e = parentCell(e.toElement);
+    e = parentCell(e.path[0]);
     if(e != 0){
         if(e.className != "page") selectCell(e);
         else unselectAll();
