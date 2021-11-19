@@ -13,7 +13,7 @@ const FILES_TO_CACHE = [
     '../fa.css',
     'https://kit-pro.fontawesome.com/releases/v5.12.1/webfonts/pro-fa-solid-900-5.12.1.woff2'
 ];
-var CACHE_NAME = '0.4'; //version of cache
+var CACHE_NAME = '0.5'; //version of cache
 
 self.addEventListener('install', event => {
     console.log(event)
