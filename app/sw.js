@@ -10,7 +10,7 @@ const FILES_TO_CACHE = [
     'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js',
     'https://fonts.googleapis.com/css?family=Noto+Sans&display=swap',
     'https://fonts.googleapis.com/css?family=Sen&display=swap',
-    'fa.css',
+    '../fa.css',
     'https://kit-pro.fontawesome.com/releases/v5.12.1/webfonts/pro-fa-solid-900-5.12.1.woff2'
 ];
 var CACHE_NAME = '0.4'; //version of cache
