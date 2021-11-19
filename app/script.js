@@ -141,7 +141,7 @@ const options = {
 
 // convert
 function convert(c){
-    let m = c.querySelector(".md").innerText;
+    let m = marked.parse(c.querySelector(".md").innerText);
     let j = c.querySelector(".js").innerText;
 
     eval(j);
