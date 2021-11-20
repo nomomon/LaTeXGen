@@ -1,6 +1,6 @@
 # LaTeXGen
 
-![home](./assets/home.png)
+![cover](./assets/cover.jpeg)
 
 Webapp for creating self-generating mathematical problems in LaTeX and Markdown using JavaScript.
 
